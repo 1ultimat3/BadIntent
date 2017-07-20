@@ -14,3 +14,8 @@ There are known limitations in hooking all system apps and all interfaces. Durin
 ## Configuration & Usage
 Please refer to the wiki pages of this repo.
 
+## License
+BadIntent is released under a 3-clause BSD License. See LICENSE for full details.
+
+
+
