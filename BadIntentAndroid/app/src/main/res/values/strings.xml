@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BadIntent</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_bad_intent_preferences">BadIntent Preferences</string>
+</resources>

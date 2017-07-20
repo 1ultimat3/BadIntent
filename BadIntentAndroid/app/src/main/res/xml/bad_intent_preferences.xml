@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="BadIntent Filter">
+        <EditTextPreference
+            android:defaultValue="de.mat3.badintent"
+            android:key="package_filter"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="Filter intercepted parcels based on the source package name"
+            android:title="Package filter regex" />
+        <EditTextPreference
+            android:defaultValue=".*"
+            android:key="interface_filter"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="Filter intercepted parcels based on the target interface"
+            android:title="Interface filter regex" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="capture_log"
+            android:summary="Logs are sent via proxy"
+            android:title="Capture Log" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="hook_system_switch"
+            android:summary="Hook system app transactions"
+            android:title="Hook system apps" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Connection Settings">
+        <EditTextPreference
+            android:defaultValue=" "
+            android:key="target_ip"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="This IP is used to send messages to (most commonly the WiFi IP of this device)"
+            android:title="Target IP" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Proxy Settings">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="use_system_proxy"
+            android:title="Use system proxy" />
+        <EditTextPreference
+            android:defaultValue="127.0.0.1"
+            android:key="proxy_host"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Proxy host" />
+        <EditTextPreference
+            android:defaultValue="8080"
+            android:key="proxy_port"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Proxy port" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
