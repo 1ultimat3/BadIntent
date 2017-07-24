@@ -74,11 +74,15 @@ public class BadIntentMessageEditorTab implements IMessageEditorTab {
 	@Override
 	public byte[] getMessage() {
         List<ParcelOperationDAO> parcelOperationDaos = overview.retrievedParcelOperations();
-        parcelPoolElementDao.operations = parcelOperationDaos;
-        String responseBody = new GsonBuilder().create().toJson(parcelPoolElementDao);
-        int bodyStart = requestInfo.getBodyOffset();
-        byte[] header = Arrays.copyOfRange(content, 0, bodyStart);
-        return Bytes.concat(header, responseBody.getBytes());
+        if (isModified()) {
+            parcelPoolElementDao.operations = parcelOperationDaos;
+            String responseBody = new GsonBuilder().create().toJson(parcelPoolElementDao);
+            int bodyStart = requestInfo.getBodyOffset();
+            byte[] header = Arrays.copyOfRange(content, 0, bodyStart);
+            return Bytes.concat(header, responseBody.getBytes());
+        } else {
+            return content;
+        }
 	}
 
 	@Override

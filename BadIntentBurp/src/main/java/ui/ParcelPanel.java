@@ -39,6 +39,9 @@ public class ParcelPanel extends JScrollPane {
 
     public void rebuild() {
         panel.removeAll();
+        if (details != null) {
+            details.removeAll(); //clear view
+        }
         Object[] columnNames = {"Operation", "Value"};
         Object[][] data = new Object[parcelOperations.size()][];
         for (int i = 0; i < parcelOperations.size(); i++){

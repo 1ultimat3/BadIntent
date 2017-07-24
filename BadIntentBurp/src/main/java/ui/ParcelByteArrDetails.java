@@ -94,9 +94,11 @@ public class ParcelByteArrDetails extends JPanel {
 
     public void setByteArray(ArrayList byteArray) {
         StringBuilder builder = new StringBuilder();
-        for (Object element : byteArray){
-            builder.append(String.format("%02X ", ((Double) element).byteValue()));
-            builder.append(" ");
+        if (byteArray != null) {
+            for (Object element : byteArray){
+                builder.append(String.format("%02X ", ((Double) element).byteValue()));
+                builder.append(" ");
+            }
         }
         this.byteArray.setText(builder.toString());
     }
