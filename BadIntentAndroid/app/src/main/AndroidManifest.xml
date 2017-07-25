@@ -17,7 +17,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="BadIntent: Android and Burp Integration" />
+            android:value="Android and Burp Integration" />
         <meta-data
             android:name="xposedminversion"
             android:value="30" />

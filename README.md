@@ -15,7 +15,9 @@ BadIntent can used to perform various pentesting activities such as the followin
 
 
 ## Installation
-The most handy approach is to install BadIntent Android from the Xposed Module Repository and BadIntent Burp from the Burp’s BApp Store. Both will be made available/submitted during the Arsenal presentation of BadIntent in Black Hat Las Vegas 2017. 
+The most handy approach is to install BadIntent Android from the Xposed Module Repository and BadIntent Burp from the Burp’s BApp Store. Both are made available/submitted before the Arsenal presentation of BadIntent in Black Hat Las Vegas 2017.
+ * [Xposed Repo Module](http://repo.xposed.info/module/de.mat3.badintent.app)
+ * [BApp Store Ref](https://portswigger.net/bappstore/bapps/)
 
 ## Environment
 BadIntent has been tested on Genymotion with Xposed v87 on Android Marshmallow (6.0) and Burp Suite 1.7.23 (Free and Pro).
