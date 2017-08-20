@@ -73,12 +73,6 @@ public class ParcelProxyHooks extends BaseHook {
                     ParcelAgent.Instance.interruptByteArray(parcel, (byte[]) args[0], (int) args[1], (int) args[2]);
                 }
             });
-            XposedHelpers.findAndHookMethod("android.os.Parcel", cloader, "writeBlob", byte[].class, int.class, int.class, new ParcelBaseWriteHook() {
-                @Override
-                protected void interruptWrite(Parcel parcel, Object[] args) {
-                    ParcelAgent.Instance.interruptBlob(parcel, (byte[]) args[0], (int) args[1], (int) args[2]);
-                }
-            });
             XposedHelpers.findAndHookMethod("android.os.Parcel", cloader, "writeFileDescriptor", FileDescriptor.class, new ParcelBaseWriteHook() {
                 @Override
                 protected void interruptWrite(Parcel parcel, Object[] args) {
@@ -103,6 +97,16 @@ public class ParcelProxyHooks extends BaseHook {
                     ParcelAgent.Instance.interruptDataPosition(parcel, (int) args[0]);
                 }
             });
+            try {
+                XposedHelpers.findAndHookMethod("android.os.Parcel", cloader, "writeBlob", byte[].class, int.class, int.class, new ParcelBaseWriteHook() {
+                    @Override
+                    protected void interruptWrite(Parcel parcel, Object[] args) {
+                        ParcelAgent.Instance.interruptBlob(parcel, (byte[]) args[0], (int) args[1], (int) args[2]);
+                        }
+            });
+            } catch (NoSuchMethodError e) { /* method does not exist in Android 4.4 */
+                Log.e(TAG, e.getLocalizedMessage());
+            }
 
             XposedHelpers.findAndHookMethod("android.os.Parcel", cloader, "setDataCapacity", int.class, new ParcelBaseWriteHook() {
                 @Override
